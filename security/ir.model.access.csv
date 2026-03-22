@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_payment_provider_sadad_user,payment.provider.sadad.user,payment.model_payment_provider,base.group_user,1,0,0,0
+access_payment_provider_sadad_manager,payment.provider.sadad.manager,payment.model_payment_provider,account.group_account_manager,1,1,1,0
+access_payment_transaction_sadad_user,payment.transaction.sadad.user,payment.model_payment_transaction,base.group_user,1,0,0,0
+access_payment_transaction_sadad_manager,payment.transaction.sadad.manager,payment.model_payment_transaction,account.group_account_manager,1,1,1,0

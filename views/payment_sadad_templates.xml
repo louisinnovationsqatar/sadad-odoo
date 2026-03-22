@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Built by Louis Innovations (www.louis-innovations.com) -->
+<odoo>
+
+    <!-- =====================================================================
+         SADAD Redirect / Embedded Payment Form Template
+         Rendered by Odoo's payment module when the customer selects SADAD.
+         The form auto-submits via JavaScript to redirect or embed the
+         SADAD checkout page.
+    ===================================================================== -->
+    <template id="sadad_form" name="SADAD Payment Form">
+        <t t-call="payment.payment_provider_form">
+            <t t-set="provider_template">
+
+                <div id="sadad_payment_form" class="sadad-payment-container">
+
+                    <!-- Embedded mode: loads SADAD iframe -->
+                    <t t-if="is_embedded">
+                        <div class="sadad-embedded-container">
+                            <div class="sadad-header">
+                                <img
+                                    src="/payment_sadad/static/src/img/sadad_logo.png"
+                                    alt="SADAD Payment Gateway"
+                                    class="sadad-logo"
+                                    onerror="this.style.display='none'"
+                                />
+                                <p class="sadad-subtitle">Secure payment via SADAD</p>
+                            </div>
+                            <!-- Embedded form POSTs to SADAD's embedded endpoint -->
+                            <form
+                                id="sadad_embedded_form"
+                                method="POST"
+                                t-att-action="api_url"
+                                target="sadad_iframe">
+                                <t t-foreach="rendering_values.items()" t-as="item">
+                                    <t t-if="item[0] not in ('api_url', 'is_embedded')">
+                                        <input
+                                            type="hidden"
+                                            t-att-name="item[0]"
+                                            t-att-value="item[1]"
+                                        />
+                                    </t>
+                                </t>
+                            </form>
+                            <iframe
+                                name="sadad_iframe"
+                                id="sadad_iframe"
+                                class="sadad-iframe"
+                                frameborder="0"
+                                scrolling="no"
+                                title="SADAD Secure Payment">
+                            </iframe>
+                        </div>
+                    </t>
+
+                    <!-- Redirect mode (v1.1 and v2.1): auto-submit form -->
+                    <t t-else="">
+                        <div class="sadad-redirect-container text-center">
+                            <div class="sadad-header">
+                                <img
+                                    src="/payment_sadad/static/src/img/sadad_logo.png"
+                                    alt="SADAD Payment Gateway"
+                                    class="sadad-logo"
+                                    onerror="this.style.display='none'"
+                                />
+                            </div>
+                            <p class="sadad-redirect-message">
+                                You will be redirected to the SADAD secure payment page...
+                            </p>
+                            <div class="sadad-spinner">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <form
+                                id="sadad_redirect_form"
+                                method="POST"
+                                t-att-action="api_url"
+                                style="display:none;">
+                                <t t-foreach="rendering_values.items()" t-as="item">
+                                    <t t-if="item[0] not in ('api_url', 'is_embedded')">
+                                        <input
+                                            type="hidden"
+                                            t-att-name="item[0]"
+                                            t-att-value="item[1]"
+                                        />
+                                    </t>
+                                </t>
+                            </form>
+                            <button
+                                type="button"
+                                class="btn btn-primary sadad-manual-submit mt-3"
+                                onclick="document.getElementById('sadad_redirect_form').submit()">
+                                Click here if not redirected automatically
+                            </button>
+                        </div>
+                    </t>
+
+                    <!-- Powered by footer -->
+                    <div class="sadad-powered-by text-center text-muted mt-3">
+                        <small>Powered by Louis Innovations</small>
+                    </div>
+
+                </div>
+
+            </t>
+        </t>
+    </template>
+
+    <!-- =====================================================================
+         Override the payment_provider template to inject SADAD form
+         rendering when provider_code is 'sadad'.
+    ===================================================================== -->
+    <template
+        id="sadad_payment_form_rendering"
+        name="SADAD Form Rendering Values"
+        inherit_id="payment.checkout">
+        <!-- No DOM changes needed — SADAD rendering is handled via
+             _get_specific_rendering_values returning 'api_url' key,
+             which Odoo's payment module picks up automatically via the
+             provider's rendering template.
+             This template exists as a hook for future customisations. -->
+    </template>
+
+    <!-- =====================================================================
+         SADAD Payment Provider display on the checkout page
+    ===================================================================== -->
+    <template
+        id="sadad_provider_display"
+        name="SADAD Provider Display"
+        inherit_id="payment.provider_form">
+        <xpath expr="//div[@name='payment_provider']" position="after">
+            <t t-if="provider.code == 'sadad'">
+                <div class="sadad-provider-info text-muted small mt-1">
+                    <i class="fa fa-lock" aria-hidden="true"/> Secure payment via SADAD Qatar
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

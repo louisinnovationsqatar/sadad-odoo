@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Built by Louis Innovations (www.louis-innovations.com) -->
+<odoo>
+    <data noupdate="1">
+
+        <!-- Default SADAD Payment Provider record.
+             Installed in 'disabled' state so the merchant must
+             explicitly configure and enable it. -->
+        <record id="payment_provider_sadad" model="payment.provider">
+            <field name="name">SADAD</field>
+            <field name="code">sadad</field>
+            <field name="state">disabled</field>
+            <field name="is_published">False</field>
+            <field name="allow_tokenization">False</field>
+            <field name="sadad_checkout_mode">v2.1</field>
+            <field name="sadad_language">eng</field>
+            <field name="sadad_order_prefix">SADAD</field>
+            <field name="description" type="html">
+                <p>Pay securely via SADAD — Qatar's leading payment gateway.</p>
+                <p>Accepted: Debit and credit cards via SADAD secure checkout.</p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

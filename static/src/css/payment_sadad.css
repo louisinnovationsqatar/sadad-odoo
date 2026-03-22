@@ -1,0 +1,93 @@
+/* Built by Louis Innovations (www.louis-innovations.com) */
+
+/* ============================================================
+   SADAD Payment Gateway — Odoo Module Styles
+   Covers redirect mode, embedded mode, and provider display.
+   ============================================================ */
+
+/* --- Container --- */
+.sadad-payment-container {
+    padding: 1rem 0;
+}
+
+/* --- Header (logo + subtitle) --- */
+.sadad-header {
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+.sadad-logo {
+    max-height: 60px;
+    max-width: 200px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.sadad-subtitle {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* --- Redirect mode --- */
+.sadad-redirect-container {
+    padding: 1.5rem 1rem;
+}
+
+.sadad-redirect-message {
+    color: #495057;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.sadad-spinner {
+    margin: 1rem auto;
+}
+
+.sadad-manual-submit {
+    display: none; /* shown only as fallback */
+    margin-top: 0.75rem;
+}
+
+/* --- Embedded mode (v2.2) --- */
+.sadad-embedded-container {
+    width: 100%;
+}
+
+.sadad-iframe {
+    width: 100%;
+    min-height: 500px;
+    border: none;
+    border-radius: 4px;
+    background: #f8f9fa;
+    transition: height 0.3s ease;
+}
+
+/* --- Provider info on checkout --- */
+.sadad-provider-info {
+    color: #6c757d;
+    font-size: 0.8rem;
+}
+
+.sadad-provider-info i {
+    color: #28a745;
+    margin-right: 3px;
+}
+
+/* --- Powered by footer --- */
+.sadad-powered-by {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: #adb5bd;
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 576px) {
+    .sadad-iframe {
+        min-height: 400px;
+    }
+
+    .sadad-logo {
+        max-height: 48px;
+    }
+}

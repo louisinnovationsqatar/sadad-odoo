@@ -1,0 +1,148 @@
+# Arabic Translation for payment_sadad
+# Built by Louis Innovations (www.louis-innovations.com)
+# Copyright (C) 2024 Louis Innovations
+# This file is distributed under the same license as the payment_sadad package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Module payment_sadad\n"
+"Report-Msgid-Bugs-To: info@louis-innovations.com\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Louis Innovations <info@louis-innovations.com>\n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#. module: payment_sadad
+#: model:payment.provider,name:payment_provider_sadad
+msgid "SADAD"
+msgstr "سداد"
+
+#. module: payment_sadad
+#: model_terms:ir.ui.view,arch_db:payment_sadad.payment_provider_sadad_form_view
+msgid "SADAD Configuration"
+msgstr "اعدادات سداد"
+
+#. module: payment_sadad
+#: model_terms:ir.ui.view,arch_db:payment_sadad.payment_provider_sadad_form_view
+msgid "Credentials"
+msgstr "بيانات الاعتماد"
+
+#. module: payment_sadad
+#: model:ir.model.fields,field_description:payment_sadad.field_payment_provider__sadad_merchant_id
+msgid "Merchant ID"
+msgstr "معرف التاجر"
+
+#. module: payment_sadad
+#: model:ir.model.fields,field_description:payment_sadad.field_payment_provider__sadad_secret_key
+msgid "Secret Key"
+msgstr "المفتاح السري"
+
+#. module: payment_sadad
+#: model:ir.model.fields,field_description:payment_sadad.field_payment_provider__sadad_website
+msgid "Website"
+msgstr "الموقع الالكتروني"
+
+#. module: payment_sadad
+#: model:ir.model.fields,field_description:payment_sadad.field_payment_provider__sadad_checkout_mode
+msgid "Checkout Mode"
+msgstr "وضع الدفع"
+
+#. module: payment_sadad
+#: model:ir.model.fields.selection,name:payment_sadad.selection__payment_provider__sadad_checkout_mode__v1_1
+msgid "Web Checkout v1.1 - Classic redirect (SHA-256 signature)"
+msgstr "دفع ويب v1.1 - توجيه كلاسيكي (توقيع SHA-256)"
+
+#. module: payment_sadad
+#: model:ir.model.fields.selection,name:payment_sadad.selection__payment_provider__sadad_checkout_mode__v2_1
+msgid "Web Checkout v2.1 - Enhanced redirect (AES-128-CBC checksum)"
+msgstr "دفع ويب v2.1 - توجيه محسن (مجموع تحقق AES-128-CBC)"
+
+#. module: payment_sadad
+#: model:ir.model.fields.selection,name:payment_sadad.selection__payment_provider__sadad_checkout_mode__v2_2
+msgid "Web Checkout v2.2 - Embedded payment form (AES-128-CBC checksum)"
+msgstr "دفع ويب v2.2 - نموذج دفع مضمن (مجموع تحقق AES-128-CBC)"
+
+#. module: payment_sadad
+#: model:ir.model.fields,field_description:payment_sadad.field_payment_provider__sadad_language
+msgid "Checkout Language"
+msgstr "لغة الدفع"
+
+#. module: payment_sadad
+#: model:ir.model.fields.selection,name:payment_sadad.selection__payment_provider__sadad_language__eng
+msgid "English"
+msgstr "الانجليزية"
+
+#. module: payment_sadad
+#: model:ir.model.fields.selection,name:payment_sadad.selection__payment_provider__sadad_language__arb
+msgid "Arabic"
+msgstr "العربية"
+
+#. module: payment_sadad
+#: model:ir.model.fields,field_description:payment_sadad.field_payment_provider__sadad_order_prefix
+msgid "Order ID Prefix"
+msgstr "بادئة معرف الطلب"
+
+#. module: payment_sadad
+#: model:ir.model.fields,field_description:payment_sadad.field_payment_provider__sadad_callback_url
+msgid "Callback URL"
+msgstr "رابط الاستجابة"
+
+#. module: payment_sadad
+#: model:ir.model.fields,field_description:payment_sadad.field_payment_provider__sadad_webhook_url
+msgid "Webhook URL"
+msgstr "رابط الويب هوك"
+
+#. module: payment_sadad
+#: model:ir.model.fields,field_description:payment_sadad.field_payment_transaction__sadad_transaction_number
+msgid "SADAD Transaction Number"
+msgstr "رقم معاملة سداد"
+
+#. module: payment_sadad
+#: model:ir.model.fields,field_description:payment_sadad.field_payment_transaction__sadad_order_id
+msgid "SADAD Order ID"
+msgstr "معرف طلب سداد"
+
+#. module: payment_sadad
+#: model:ir.model.fields,field_description:payment_sadad.field_payment_transaction__sadad_response_code
+msgid "SADAD Response Code"
+msgstr "كود استجابة سداد"
+
+#. module: payment_sadad
+#: model:ir.model.fields,field_description:payment_sadad.field_payment_transaction__sadad_response_message
+msgid "SADAD Response Message"
+msgstr "رسالة استجابة سداد"
+
+#. module: payment_sadad
+#: code:addons/payment_sadad/models/payment_transaction.py:0
+msgid "SADAD refund failed: %(error)s"
+msgstr "فشل استرداد مبلغ سداد: %(error)s"
+
+#. module: payment_sadad
+#: model_terms:ir.ui.view,arch_db:payment_sadad.sadad_form
+msgid "You will be redirected to the SADAD secure payment page..."
+msgstr "سيتم تحويلك الى صفحة الدفع الامنة لسداد..."
+
+#. module: payment_sadad
+#: model_terms:ir.ui.view,arch_db:payment_sadad.sadad_form
+msgid "Click here if not redirected automatically"
+msgstr "انقر هنا اذا لم يتم التحويل تلقائياً"
+
+#. module: payment_sadad
+#: model_terms:ir.ui.view,arch_db:payment_sadad.sadad_form
+msgid "Pay securely via SADAD"
+msgstr "ادفع بأمان عبر سداد"
+
+#. module: payment_sadad
+#: model_terms:ir.ui.view,arch_db:payment_sadad.sadad_form
+msgid "Powered by Louis Innovations"
+msgstr "مدعوم من لويس للابتكارات"
+
+#. module: payment_sadad
+#: model:payment.provider,description:payment_provider_sadad
+msgid "Pay securely via SADAD — Qatar's leading payment gateway."
+msgstr "ادفع بأمان عبر سداد - بوابة الدفع الرائدة في قطر."

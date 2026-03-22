@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Built by Louis Innovations (www.louis-innovations.com) -->
+<odoo>
+
+    <!-- =====================================================================
+         SADAD Payment Provider — Form View Extension
+         Extends the default payment.provider form with SADAD-specific fields.
+         The SADAD notebook page is only visible when code == 'sadad'.
+    ===================================================================== -->
+    <record id="payment_provider_sadad_form_view" model="ir.ui.view">
+        <field name="name">payment.provider.sadad.form</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment.payment_provider_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Add SADAD Configuration tab after the main configuration tab -->
+            <xpath expr="//notebook" position="inside">
+                <page
+                    name="sadad_config"
+                    string="SADAD Configuration"
+                    attrs="{'invisible': [('code', '!=', 'sadad')]}">
+
+                    <!-- =====================================================
+                         Section 1: Credentials
+                    ===================================================== -->
+                    <group string="Credentials" name="sadad_credentials">
+                        <group>
+                            <field
+                                name="sadad_merchant_id"
+                                attrs="{'required': [('code', '=', 'sadad')]}"
+                                placeholder="e.g. 1234567"
+                                help="Your 7-digit SADAD Merchant ID from panel.sadad.qa"
+                            />
+                            <field
+                                name="sadad_secret_key"
+                                password="True"
+                                attrs="{'required': [('code', '=', 'sadad')]}"
+                                help="Your SADAD Secret Key. Keep this confidential."
+                            />
+                            <field
+                                name="sadad_website"
+                                attrs="{'required': [('code', '=', 'sadad')]}"
+                                placeholder="e.g. TESTWEBSITE"
+                                help="The website identifier registered with SADAD."
+                            />
+                        </group>
+                    </group>
+
+                    <!-- =====================================================
+                         Section 2: Checkout Settings
+                    ===================================================== -->
+                    <group string="Checkout Settings" name="sadad_checkout">
+                        <group>
+                            <field
+                                name="sadad_checkout_mode"
+                                attrs="{'required': [('code', '=', 'sadad')]}"
+                                help="Select the SADAD checkout integration mode."
+                            />
+                            <field
+                                name="sadad_language"
+                                attrs="{'required': [('code', '=', 'sadad')]}"
+                            />
+                        </group>
+                        <group>
+                            <!-- Checkout mode descriptions -->
+                            <div class="alert alert-info" role="alert"
+                                attrs="{'invisible': [('sadad_checkout_mode', '!=', 'v1.1')]}">
+                                <strong>v1.1 — Classic Redirect:</strong>
+                                Customer is redirected to the SADAD checkout page.
+                                Uses a SHA-256 signature for security.
+                                Simplest integration, good for basic setups.
+                            </div>
+                            <div class="alert alert-info" role="alert"
+                                attrs="{'invisible': [('sadad_checkout_mode', '!=', 'v2.1')]}">
+                                <strong>v2.1 — Enhanced Redirect:</strong>
+                                Customer is redirected to the SADAD checkout page.
+                                Uses AES-128-CBC encrypted checksum for enhanced security.
+                                Recommended for most merchants.
+                            </div>
+                            <div class="alert alert-info" role="alert"
+                                attrs="{'invisible': [('sadad_checkout_mode', '!=', 'v2.2')]}">
+                                <strong>v2.2 — Embedded Form:</strong>
+                                The SADAD payment form is embedded in your checkout page.
+                                Customer does not leave your website.
+                                Uses AES-128-CBC encrypted checksum.
+                                Requires SSL/HTTPS on your domain.
+                            </div>
+                        </group>
+                    </group>
+
+                    <!-- =====================================================
+                         Section 3: Callback and Webhook URLs
+                         These must be entered in the SADAD merchant panel.
+                    ===================================================== -->
+                    <group string="Integration URLs" name="sadad_urls">
+                        <div class="alert alert-warning" role="alert">
+                            Copy these URLs and paste them into your SADAD merchant panel
+                            at <strong>panel.sadad.qa</strong>.
+                        </div>
+                        <group>
+                            <field
+                                name="sadad_callback_url"
+                                readonly="1"
+                                help="Paste this in your SADAD panel under Return URL / Callback URL."
+                                widget="CopyClipboardChar"
+                            />
+                            <field
+                                name="sadad_webhook_url"
+                                readonly="1"
+                                help="Paste this in your SADAD panel under Webhook URL tab."
+                                widget="CopyClipboardChar"
+                            />
+                        </group>
+                    </group>
+
+                    <!-- =====================================================
+                         Section 4: Advanced Settings
+                    ===================================================== -->
+                    <group string="Advanced" name="sadad_advanced">
+                        <group>
+                            <field
+                                name="sadad_order_prefix"
+                                help="Optional prefix for order IDs sent to SADAD."
+                                placeholder="e.g. SHOP"
+                            />
+                            <field
+                                name="sadad_api_version"
+                                readonly="1"
+                                help="SADAD API/checkout version in use."
+                            />
+                        </group>
+                    </group>
+
+                    <!-- =====================================================
+                         Footer
+                    ===================================================== -->
+                    <div class="text-muted text-center mt-4" style="border-top: 1px solid #dee2e6; padding-top: 12px;">
+                        <small>
+                            Built by <strong>Louis Innovations</strong> |
+                            <a href="https://www.louis-innovations.com" target="_blank">www.louis-innovations.com</a> |
+                            Free &amp; Open Source (LGPL-3)
+                        </small>
+                    </div>
+
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SADAD Payment Gateway for Odoo — Free &amp; Open Source</title>
+    <style>
+        body { font-family: Arial, sans-serif; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; }
+        h1 { color: #1a73e8; }
+        h2 { color: #174ea6; border-bottom: 2px solid #e8f0fe; padding-bottom: 6px; }
+        h3 { color: #333; }
+        .hero { background: linear-gradient(135deg, #1a73e8, #0d47a1); color: #fff; padding: 40px 30px; border-radius: 8px; margin-bottom: 30px; text-align: center; }
+        .hero h1 { color: #fff; font-size: 2rem; margin: 0 0 10px; }
+        .hero p { font-size: 1.15rem; opacity: 0.9; margin: 0; }
+        .badge { display: inline-block; background: #fff; color: #1a73e8; font-size: 0.8rem; font-weight: bold; border-radius: 4px; padding: 3px 10px; margin: 4px; }
+        .comparison { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .comparison th { background: #1a73e8; color: #fff; padding: 12px 16px; text-align: left; }
+        .comparison td { padding: 10px 16px; border-bottom: 1px solid #e0e0e0; }
+        .comparison tr:nth-child(even) td { background: #f8f9fa; }
+        .comparison .yes { color: #28a745; font-weight: bold; }
+        .comparison .no { color: #dc3545; }
+        .features { list-style: none; padding: 0; }
+        .features li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+        .features li::before { content: "✓ "; color: #28a745; font-weight: bold; }
+        .mode-card { border: 1px solid #dee2e6; border-radius: 8px; padding: 16px; margin: 12px 0; }
+        .mode-card h3 { margin: 0 0 8px; color: #1a73e8; }
+        .mode-card p { margin: 0; color: #555; font-size: 0.9rem; }
+        .steps { counter-reset: step; padding: 0; }
+        .steps li { counter-increment: step; list-style: none; padding: 10px 0 10px 50px; position: relative; border-bottom: 1px solid #f0f0f0; }
+        .steps li::before { content: counter(step); position: absolute; left: 0; top: 8px; background: #1a73e8; color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem; }
+        .footer { background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; margin-top: 30px; color: #666; }
+        .footer a { color: #1a73e8; text-decoration: none; }
+        .alert { background: #e8f5e9; border-left: 4px solid #28a745; padding: 12px 16px; border-radius: 4px; margin: 16px 0; }
+        .code { background: #f8f9fa; font-family: monospace; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+        .price-free { font-size: 2rem; font-weight: bold; color: #28a745; }
+        .price-paid { font-size: 2rem; font-weight: bold; color: #dc3545; text-decoration: line-through; }
+        .two-col { display: flex; gap: 20px; flex-wrap: wrap; }
+        .col { flex: 1; min-width: 280px; }
+    </style>
+</head>
+<body>
+
+<!-- Hero Banner -->
+<div class="hero">
+    <h1>SADAD Payment Gateway for Odoo</h1>
+    <p>FREE &amp; Open Source — Full-featured integration for Qatar's leading payment gateway</p>
+    <br>
+    <span class="badge">LGPL-3 License</span>
+    <span class="badge">Odoo 16, 17, 18</span>
+    <span class="badge">3 Checkout Modes</span>
+    <span class="badge">Refunds Supported</span>
+    <span class="badge">Webhook Support</span>
+    <span class="badge">Arabic + English</span>
+</div>
+
+<!-- Why Choose This Module -->
+<div class="alert">
+    <strong>Why pay $199 for a payment module?</strong> This is a complete, production-ready,
+    open-source alternative — built with full SADAD v1.1, v2.1, and v2.2 support,
+    refunds, webhooks, and multi-language checkout. Free forever.
+</div>
+
+<!-- Price Comparison -->
+<h2>Comparison vs Proprietary Alternatives</h2>
+<table class="comparison">
+    <thead>
+        <tr>
+            <th>Feature</th>
+            <th>This Module (Louis Innovations)</th>
+            <th>Proprietary Competitor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Price</td>
+            <td class="yes"><span class="price-free">FREE</span></td>
+            <td class="no"><span class="price-paid">$199</span></td>
+        </tr>
+        <tr>
+            <td>License</td>
+            <td class="yes">LGPL-3 (Open Source)</td>
+            <td class="no">OPL-1 (Proprietary, no sharing)</td>
+        </tr>
+        <tr>
+            <td>Source Code</td>
+            <td class="yes">Fully open, auditable</td>
+            <td class="no">Obfuscated / closed</td>
+        </tr>
+        <tr>
+            <td>Checkout v1.1</td>
+            <td class="yes">Yes (SHA-256 signature)</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Checkout v2.1</td>
+            <td class="yes">Yes (AES-128-CBC)</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Checkout v2.2 Embedded</td>
+            <td class="yes">Yes</td>
+            <td class="no">No</td>
+        </tr>
+        <tr>
+            <td>Full Refunds via API</td>
+            <td class="yes">Yes</td>
+            <td>Limited</td>
+        </tr>
+        <tr>
+            <td>Webhook Support</td>
+            <td class="yes">Yes</td>
+            <td>Basic</td>
+        </tr>
+        <tr>
+            <td>Arabic Checkout</td>
+            <td class="yes">Yes</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Odoo 17 Support</td>
+            <td class="yes">Yes (Primary)</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>Odoo 16 / 18 Support</td>
+            <td class="yes">Yes (Compatible)</td>
+            <td>Separate purchase</td>
+        </tr>
+        <tr>
+            <td>Community Support</td>
+            <td class="yes">GitHub Issues + Email</td>
+            <td class="no">Paid support only</td>
+        </tr>
+        <tr>
+            <td>Extensible / Forkable</td>
+            <td class="yes">Yes — full freedom</td>
+            <td class="no">No</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Features -->
+<h2>Features</h2>
+<div class="two-col">
+    <div class="col">
+        <ul class="features">
+            <li>SADAD Web Checkout v1.1 — SHA-256 signature</li>
+            <li>SADAD Web Checkout v2.1 — AES-128-CBC checksum</li>
+            <li>SADAD Web Checkout v2.2 — Embedded iframe form</li>
+            <li>Automatic form submission on checkout</li>
+            <li>SADAD callback URL handling</li>
+            <li>SADAD webhook (server-to-server) support</li>
+        </ul>
+    </div>
+    <div class="col">
+        <ul class="features">
+            <li>Full refund via SADAD REST API</li>
+            <li>Order ID prefix configuration</li>
+            <li>Multi-language checkout (English / Arabic)</li>
+            <li>Transaction number logging</li>
+            <li>Signature verification for security</li>
+            <li>Integration with Odoo payment status flow</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Checkout Modes -->
+<h2>Checkout Modes Explained</h2>
+<div class="mode-card">
+    <h3>v1.1 — Classic Redirect</h3>
+    <p>
+        Customer is redirected to the SADAD-hosted checkout page after clicking Pay.
+        Uses a SHA-256 SHA hash signature generated from sorted parameters.
+        Simple and widely supported. Best for merchants who want a straightforward integration.
+    </p>
+</div>
+<div class="mode-card">
+    <h3>v2.1 — Enhanced Redirect</h3>
+    <p>
+        Customer is redirected to SADAD's enhanced checkout page.
+        Uses AES-128-CBC encrypted checksum with a random 4-char salt for tamper prevention.
+        Recommended for most merchants — best balance of security and simplicity.
+    </p>
+</div>
+<div class="mode-card">
+    <h3>v2.2 — Embedded Payment Form</h3>
+    <p>
+        The SADAD payment form is embedded directly in your Odoo checkout page via iframe.
+        Customer never leaves your website. Requires HTTPS (SSL) on your domain.
+        Uses the same AES-128-CBC checksum as v2.1. Best for premium user experience.
+    </p>
+</div>
+
+<!-- Quick Setup -->
+<h2>Quick Setup (5 Steps)</h2>
+<ol class="steps">
+    <li>
+        <strong>Install the module</strong> via Odoo Apps or by placing it in your addons path
+        and upgrading the module list.
+    </li>
+    <li>
+        <strong>Go to Invoicing → Configuration → Payment Providers</strong>
+        and find "SADAD" in the list.
+    </li>
+    <li>
+        <strong>Enter your credentials</strong>: Merchant ID, Secret Key, and Website name
+        (all available from <span class="code">panel.sadad.qa</span>).
+    </li>
+    <li>
+        <strong>Copy the Callback URL and Webhook URL</strong> shown in the module settings
+        and paste them into your SADAD merchant panel.
+    </li>
+    <li>
+        <strong>Set state to "Enabled"</strong> and test with SADAD test credentials.
+        Switch to production when ready.
+    </li>
+</ol>
+
+<!-- Configuration Screenshot Descriptions -->
+<h2>Configuration Screenshots</h2>
+<div style="background:#f8f9fa; border:1px solid #dee2e6; border-radius:8px; padding:20px; margin:12px 0;">
+    <h3 style="margin-top:0;">Screenshot 1: Payment Provider Settings</h3>
+    <p>
+        The SADAD provider settings page shows three sections:<br>
+        <strong>Credentials</strong>: Merchant ID, Secret Key, Website fields.<br>
+        <strong>Checkout Settings</strong>: Dropdown for v1.1/v2.1/v2.2 with help text, Language selector.<br>
+        <strong>Integration URLs</strong>: Read-only Callback URL and Webhook URL with copy buttons.
+    </p>
+</div>
+<div style="background:#f8f9fa; border:1px solid #dee2e6; border-radius:8px; padding:20px; margin:12px 0;">
+    <h3 style="margin-top:0;">Screenshot 2: Checkout Page</h3>
+    <p>
+        On the Odoo eCommerce checkout page, SADAD appears as a payment option with its logo.
+        When selected and "Pay Now" is clicked, the customer is redirected to (or shown inline)
+        the SADAD secure payment form.
+    </p>
+</div>
+<div style="background:#f8f9fa; border:1px solid #dee2e6; border-radius:8px; padding:20px; margin:12px 0;">
+    <h3 style="margin-top:0;">Screenshot 3: Transaction in Odoo</h3>
+    <p>
+        After payment, the Odoo payment transaction record shows:
+        SADAD Transaction Number, Response Code, Response Message, and the standard
+        Odoo payment state (Done / Cancelled / Pending).
+    </p>
+</div>
+
+<!-- Refunds -->
+<h2>Refunds</h2>
+<p>
+    Full refunds are supported via the SADAD API. To issue a refund:
+</p>
+<ul>
+    <li>Go to the payment transaction in Odoo</li>
+    <li>Click the Refund button (standard Odoo payment workflow)</li>
+    <li>The module authenticates with SADAD API and submits the refund</li>
+</ul>
+<p>
+    <strong>Limitations:</strong> SADAD only supports <strong>full refunds</strong> (no partial).
+    Refunds must be made within <strong>3 months</strong> of the original transaction.
+    Transaction must be in <strong>Success</strong> status.
+</p>
+
+<!-- Footer -->
+<div class="footer">
+    <p>
+        <strong>Built by Louis Innovations</strong><br>
+        Qatar-based technology consultancy specialising in Odoo, eCommerce, and payment integrations.<br>
+        <a href="https://www.louis-innovations.com" target="_blank">www.louis-innovations.com</a> |
+        <a href="mailto:info@louis-innovations.com">info@louis-innovations.com</a>
+    </p>
+    <p>
+        <strong>GitHub:</strong> Issues, contributions, and pull requests welcome.<br>
+        This module is FREE and always will be. If it saved you $199, consider buying us a coffee.
+    </p>
+    <p style="color:#999; font-size:0.8rem;">
+        SADAD, SADADQA, and related marks are trademarks of SADAD Payment Solutions.
+        This module is independently developed and is not affiliated with or endorsed by SADAD.
+        Licensed under LGPL-3.
+    </p>
+</div>
+
+</body>
+</html>

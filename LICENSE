@@ -1,0 +1,97 @@
+GNU LESSER GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
+
+Copyright (C) 2024 Louis Innovations (www.louis-innovations.com)
+
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
+
+
+  This version of the GNU Lesser General Public License incorporates
+the terms and conditions of version 3 of the GNU General Public
+License, supplemented by the additional permissions listed below.
+
+  0. Additional Definitions.
+
+  As used herein, "this License" refers to version 3 of the GNU Lesser
+General Public License, and the "GNU GPL" refers to version 3 of the GNU
+General Public License.
+
+  "The Library" refers to a covered work governed by this License,
+other than an Application or a Combined Work as defined below.
+
+  An "Application" is any work that makes use of an interface provided
+by the Library, but which is not otherwise based on the Library.
+Defining a subclass of a class defined by the Library is deemed a mode
+of using an interface provided by the Library.
+
+  A "Combined Work" is a work produced by combining or linking an
+Application with the Library.  The particular version of the Library
+with which the Combined Work was made is also called the "Linked
+Version".
+
+  The "Minimal Corresponding Source" for a Combined Work means the
+Corresponding Source for the Combined Work, excluding any source code
+for portions of the Combined Work that, as a separate and independent
+work, are not derived from the Library.
+
+  The "Corresponding Application Code" for a Combined Work means the
+object code and/or source code for the Application, including any data
+and utilization scripts needed to reproduce the Combined Work from the
+Application, but excluding the System Libraries of the Combined Work.
+
+  1. Exception to Section 3 of the GNU GPL.
+
+  You may convey a covered work under sections 3 and 4 of this License
+without being bound by section 3 of the GNU GPL.
+
+  2. Conveying Verbatim Copies.
+
+  You may convey verbatim copies of the Library's source code as you
+receive it, in any medium, provided that you conspicuously and
+appropriately publish on each copy an appropriate copyright notice and
+disclaimer of warranty; keep intact all notices stating that this
+License and any non-permissive terms added in accord with section 7
+apply to the code; keep intact all notices of the absence of any
+warranty; and give all recipients a copy of this License along with the
+Library.
+
+  You may charge any price or no price for each copy, and you may offer
+support or warranty protection for a fee.
+
+  3. Conveying Modified Versions.
+
+  You may convey a copy of the Library under the terms of section 2
+above, and/or modifications to produce a Modified Version, but only if
+you also meet all of these conditions:
+
+   a) The modified work must itself be a library.
+
+   b) You must license the entire modified work, as a whole, under this
+   License to anyone who comes into possession of a copy.  This
+   License will therefore apply, along with any applicable section 7
+   additional terms, to the whole of the work, and all its parts,
+   regardless of how they are packaged.  This License gives no
+   permission to license the work in any other way, but it does not
+   invalidate such a permission if you have separately received it.
+
+   c) If the modified work has a user interface, it must display
+   Appropriate Legal Notices; however, if the Library has a user
+   interface that does not display Appropriate Legal Notices, your work
+   need not make it do so.
+
+  A compilation of a Library alongside other separate and independent
+works, in or into a volume of a storage or distribution medium, is not
+"conveying" the Modified Version as a whole under this License.
+Other works remain under their own licenses.
+
+For the complete text of the GNU LGPL v3, see:
+https://www.gnu.org/licenses/lgpl-3.0.txt
+
+ADDITIONAL NOTE:
+This module is also available under a more permissive interpretation
+for individuals and organizations. The "LGPL-3" designation is used
+for compatibility with Odoo's module ecosystem. The spirit of this
+project is free and open — use it, modify it, ship it.
+
+Built by Louis Innovations (www.louis-innovations.com)
